@@ -9,36 +9,55 @@ type Options = {
   showViral: boolean
 }
 
-type ImageData = {
-  animated: boolean
-  description?: string
-  height: number
+interface GalleryItem {
   id: string
-  link: string
-  title?: string
-  type: string
-  video?: string
-  width: number
-}
-
-type GalleryData = {
-  animated?: boolean
-  cover_height: number
-  cover_width: number
-  description?: string
-  downs: number
-  id: string
-  is_album: boolean
-  images?: ImageData[]
-  link?: string
-  score: number
   title: string
-  type?: string
+  description?: string
+  views: number
+  comment_count: number
+  favorite_count: number
   ups: number
+  downs: number
+  points: number
+  score: number
+  is_album: boolean
 }
 
-type Data = {
-  data: GalleryData[]
+interface Image {
+  id: string
+  type: string
+  animated: boolean
+  width: number
+  height: number
+  link: string
+}
+
+interface GalleryImage extends GalleryItem, Image {
+  is_album: false
+}
+
+interface AlbumImage extends Image {
+  title?: string
+  description?: string
+  views: number
+  comment_count?: number
+  favorite_count?: number
+  ups?: number
+  downs?: number
+  points?: number
+  score?: number
+}
+
+interface GalleryAlbum extends GalleryItem {
+  is_album: true
+  images_count: number
+  images: AlbumImage[]
+}
+
+type GalleryResponse = {
+  data: (GalleryAlbum | GalleryImage)[]
+  success: boolean
+  status: number
 }
 
 export type {
@@ -46,7 +65,8 @@ export type {
   SortOption,
   WindowOption,
   Options,
-  ImageData,
-  GalleryData,
-  Data,
+  AlbumImage,
+  GalleryAlbum,
+  GalleryImage,
+  GalleryResponse,
 }

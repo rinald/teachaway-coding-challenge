@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
-import type { Data } from '../types'
+import type { GalleryResponse } from '../types'
 
 import { OptionsContext } from '../App'
 
 const useGallery = () => {
-  const [data, setData] = useState<Data | null>(null)
+  const [response, setResponse] = useState<GalleryResponse | null>(null)
   const [options] = useContext(OptionsContext)
 
   useEffect(() => {
@@ -23,12 +23,17 @@ const useGallery = () => {
       return data
     }
 
-    getImages().then(response => {
-      setData(response.data)
+    setResponse(null)
+    getImages().then(res => {
+      setResponse(res.data)
     })
   }, [options])
 
-  return data
+  return response?.data
 }
 
-export { useGallery }
+const useGalleryAlbum = (id: string) => {}
+
+const useGalleryImage = (id: string) => {}
+
+export { useGallery, useGalleryAlbum, useGalleryImage }

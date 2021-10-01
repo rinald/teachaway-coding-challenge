@@ -7,14 +7,12 @@ import '../styles/GalleryGrid.css'
 
 const GalleryGrid: React.FC = () => {
   // load gallery data using custom hook
-  const data = useGallery()
-
-  // console.log('Data:', data)
+  const items = useGallery()
 
   return (
     <div className='galleryGrid'>
-      {data?.data.map(item => (
-        <GalleryCard key={item.id} data={item} />
+      {items?.map(item => (
+        <GalleryCard key={item.id} item={item} />
       ))}
     </div>
   )

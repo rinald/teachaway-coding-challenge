@@ -11,21 +11,44 @@
   overflow: hidden;
 }
 
+.galleryCard:hover {
+  animation: hover 0.5s ease-out forwards;
+}
+
 img,
 video {
   width: 100%;
-  object-fit: contain;
+  min-height: 300px;
+  object-fit: fill;
 }
 
 .contentWrapper {
   position: absolute;
   top: 0px;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 
 .contentWrapper:hover {
   cursor: pointer;
+}
+
+.albumCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  padding: 6px;
+  opacity: 0.8;
+  width: 20px;
+  height: 20px;
+  background-color: #474a51;
+  border-radius: 100%;
+  z-index: 20;
+  color: whitesmoke;
+  font-weight: bold;
 }
 
 .titleBar {
@@ -37,4 +60,13 @@ video {
   background-color: #474a51;
   color: whitesmoke;
   display: block;
+}
+
+@keyframes hover {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.7;
+  }
 }

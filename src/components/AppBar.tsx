@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 
+import Checkbox from './Checkbox'
 import Dropdown from './Dropdown'
 
 import { OptionsContext, defaultOptions } from '../App'
@@ -13,6 +14,7 @@ const AppBar: React.FC = () => {
     <div className='appBar'>
       <span className='title'>Imgir</span>
       <Dropdown
+        label='Section'
         defaultValue={defaultOptions.section}
         values={['hot', 'top', 'user']}
         onSelect={value =>
@@ -20,6 +22,7 @@ const AppBar: React.FC = () => {
         }
       />
       <Dropdown
+        label='Sort'
         defaultValue={defaultOptions.sort}
         values={['viral', 'top', 'time', 'rising']}
         onSelect={value =>
@@ -27,11 +30,17 @@ const AppBar: React.FC = () => {
         }
       />
       <Dropdown
+        label='Window'
         defaultValue={defaultOptions.window}
         values={['day', 'week', 'month', 'year', 'all']}
         onSelect={value =>
           setOptions({ ...options, window: value as WindowOption })
         }
+      />
+      <Checkbox
+        label='Show Viral'
+        enabled={defaultOptions.showViral}
+        onToggle={enabled => setOptions({ ...options, showViral: enabled })}
       />
     </div>
   )

@@ -1,23 +1,23 @@
 import React from 'react'
 
-import type { GalleryData, ImageData } from '../types'
+import type { AlbumImage, GalleryAlbum, GalleryImage } from '../types'
 import '../styles/GalleryCard.css'
 
 type Props = {
-  data: GalleryData
+  item: GalleryAlbum | GalleryImage
 }
 
-const GalleryCard: React.FC<Props> = ({ data }) => {
+const GalleryCard: React.FC<Props> = ({ item }) => {
   const getContent = () => {
-    let cover: ImageData | GalleryData
+    let cover: AlbumImage | GalleryImage
 
-    if (data.is_album && data.images !== undefined) {
-      cover = data.images[0]
+    if (item.is_album) {
+      cover = (item as GalleryAlbum).images[0]
     } else {
-      cover = data
+      cover = item as GalleryImage
     }
 
-    if (cover.animated) {
+    if (cover.animated && cover.type !== 'image/gif') {
       return (
         <video draggable={false} playsInline autoPlay loop muted>
           <source type={cover.type} src={cover.link} />
@@ -31,8 +31,11 @@ const GalleryCard: React.FC<Props> = ({ data }) => {
   return (
     <div className='galleryCard'>
       <div className='contentWrapper'>{getContent()}</div>
+      {item.is_album && (item as GalleryAlbum).images_count > 1 && (
+        <div className='albumCount'>{item.images_count}</div>
+      )}
       <div className='titleBar'>
-        <span>{data.title}</span>
+        <span>{item.title}</span>
       </div>
     </div>
   )
