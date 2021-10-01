@@ -1,0 +1,13 @@
+.appBar {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: space-evenly;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-family: 'PT Sans', sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}

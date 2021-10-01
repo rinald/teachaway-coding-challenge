@@ -1,15 +1,21 @@
 import React from 'react'
 
-import type { GalleryData } from '../types'
+import type { GalleryData, ImageData } from '../types'
 import '../styles/GalleryCard.css'
 
 type Props = {
-  galleryData: GalleryData
+  data: GalleryData
 }
 
-const GalleryCard: React.FC<Props> = ({ galleryData }) => {
+const GalleryCard: React.FC<Props> = ({ data }) => {
   const getContent = () => {
-    const cover = galleryData.images[0]
+    let cover: ImageData | GalleryData
+
+    if (data.is_album && data.images !== undefined) {
+      cover = data.images[0]
+    } else {
+      cover = data
+    }
 
     if (cover.animated) {
       return (
@@ -26,7 +32,7 @@ const GalleryCard: React.FC<Props> = ({ galleryData }) => {
     <div className='galleryCard'>
       <div className='contentWrapper'>{getContent()}</div>
       <div className='titleBar'>
-        <p>{galleryData.title}</p>
+        <span>{data.title}</span>
       </div>
     </div>
   )
