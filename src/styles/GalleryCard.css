@@ -1,0 +1,38 @@
+.galleryCard {
+  display: block;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  background-color: whitesmoke;
+  /* border-radius: 8px; */
+  border: 1px solid darkgray;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+img,
+video {
+  width: 100%;
+  object-fit: contain;
+  /* overflow: hidden; */
+}
+
+.contentWrapper {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+}
+
+.titleBar {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  padding: 4px;
+  z-index: 10;
+  background-color: #474a51;
+  color: whitesmoke;
+  display: block;
+}
