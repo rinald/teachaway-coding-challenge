@@ -37,6 +37,7 @@ interface GalleryImage extends GalleryItem, Image {
 }
 
 interface AlbumImage extends Image {
+  is_album: false
   title?: string
   description?: string
   views: number

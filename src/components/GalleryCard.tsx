@@ -1,6 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import type { AlbumImage, GalleryAlbum, GalleryImage } from '../types'
+import Content from './Content'
+import type { GalleryAlbum, GalleryImage } from '../types'
+
+import {
+  ArrowCircleUpIcon,
+  ArrowCircleDownIcon,
+  ChatIcon,
+} from '@heroicons/react/solid'
+
 import '../styles/GalleryCard.css'
 
 type Props = {
@@ -8,34 +17,29 @@ type Props = {
 }
 
 const GalleryCard: React.FC<Props> = ({ item }) => {
-  const getContent = () => {
-    let cover: AlbumImage | GalleryImage
-
-    if (item.is_album) {
-      cover = (item as GalleryAlbum).images[0]
-    } else {
-      cover = item as GalleryImage
-    }
-
-    if (cover.animated && cover.type !== 'image/gif') {
-      return (
-        <video draggable={false} playsInline autoPlay loop muted>
-          <source type={cover.type} src={cover.link} />
-        </video>
-      )
-    } else {
-      return <img src={cover.link} alt={cover.title ?? 'Imgur image'} />
-    }
-  }
-
   return (
     <div className='galleryCard'>
-      <div className='contentWrapper'>{getContent()}</div>
+      <Link to={item.is_album ? `/album/${item.id}` : `/image/${item.id}`}>
+        <div className='contentWrapper'>
+          <Content item={item} />
+        </div>
+      </Link>
       {item.is_album && (item as GalleryAlbum).images_count > 1 && (
         <div className='albumCount'>{item.images_count}</div>
       )}
       <div className='titleBar'>
-        <span>{item.title}</span>
+        <div className='itemTitle'>{item.title}</div>
+        <div className='bottomIcons'>
+          <div className='iconGroup'>
+            <ArrowCircleUpIcon width={24} height={24} />
+            <span>{item.ups}</span>
+            <ArrowCircleDownIcon width={24} height={24} />
+          </div>
+          <div className='iconGroup'>
+            <ChatIcon width={24} height={24} />
+            <span>{item.comment_count}</span>
+          </div>
+        </div>
       </div>
     </div>
   )

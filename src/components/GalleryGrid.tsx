@@ -2,7 +2,7 @@ import React from 'react'
 
 import GalleryCard from './GalleryCard'
 
-import { useGallery } from '../hooks/galleryHook'
+import { useGallery } from '../hooks/galleryHooks'
 import '../styles/GalleryGrid.css'
 
 const GalleryGrid: React.FC = () => {

@@ -1,7 +1,11 @@
 import React, { useState, createContext } from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import type { Options } from './types'
+
 import Home from './pages/Home'
+import AlbumPage from './pages/Album'
+import ImagePage from './pages/Image'
 
 // default gallery filter options
 const defaultOptions: Options = {
@@ -20,7 +24,19 @@ const App: React.FC = () => {
 
   return (
     <OptionsContext.Provider value={[options, setOptions]}>
-      <Home />
+      <Router>
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/album/:id'>
+            <AlbumPage />
+          </Route>
+          <Route path='/image/:id'>
+            <ImagePage />
+          </Route>
+        </Switch>
+      </Router>
     </OptionsContext.Provider>
   )
 }

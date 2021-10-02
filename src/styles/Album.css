@@ -1,0 +1,55 @@
+.albumWrapper {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.albumItem {
+  position: relative;
+  display: block;
+  max-width: 80%;
+  min-width: 30%;
+  height: max-content;
+  height: fit-content;
+  background-color: whitesmoke;
+  border-radius: 8px;
+  border: 1px solid darkgray;
+  overflow-x: hidden;
+}
+
+.imageTitle {
+  font-family: 'PT Sans', sans-serif;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.albumTitle {
+  font-family: 'PT Sans', sans-serif;
+  font-size: xx-large;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.description {
+  padding: 8px;
+  max-width: fit-content;
+}
+
+.imageInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+}
+
+.iconGroup {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

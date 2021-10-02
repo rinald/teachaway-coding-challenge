@@ -29,9 +29,9 @@ video {
   /* height: 100%; */
 }
 
-.contentWrapper:hover {
+/* .contentWrapper:hover {
   cursor: pointer;
-}
+} */
 
 .albumCount {
   display: flex;
@@ -52,14 +52,37 @@ video {
 }
 
 .titleBar {
-  width: 100%;
+  width: 300px;
   position: absolute;
-  padding: 8px;
   bottom: 0px;
   z-index: 10;
   background-color: #474a51;
   color: whitesmoke;
   display: block;
+}
+
+.itemTitle {
+  padding: 8px;
+  font-size: medium;
+  /* padding-right: 8px; */
+}
+
+.bottomIcons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  padding-right: 12px;
+  gap: 4px;
+  color: whitesmoke;
+}
+
+.iconGroup {
+  display: flex;
+  gap: 4px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 @keyframes hover {
