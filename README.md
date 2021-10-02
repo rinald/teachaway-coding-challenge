@@ -34,4 +34,4 @@ In order to get a Client ID, you need to register an app at https://api.imgur.co
 npm start
 ```
 
-**Note**: When running the project, a broser tab will automatically open at `localhost:3000`. Due to limitations of the Imgur API, in order to view the working app, you should access the app from `0.0.0.0:3000` instead
+**Note**: When running the project, a broser tab will automatically open at `localhost:3000`. Due to limitations of the Imgur API, in order to view the working app, you should access the app from the second link shown on the terminal instead ( e.g., `On Your Network: http://...`)
