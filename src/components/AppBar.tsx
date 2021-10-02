@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 
+// import Checkbox and Dropdown components that are used to manage options
 import Checkbox from './Checkbox'
 import Dropdown from './Dropdown'
 
@@ -7,6 +8,8 @@ import { OptionsContext, defaultOptions } from '../App'
 import type { SortOption, SectionOption, WindowOption } from '../types'
 import '../styles/AppBar.css'
 
+// app bar component
+// displayed on top of the homepage and stays fixed when scrolling
 const AppBar: React.FC = () => {
   const [options, setOptions] = useContext(OptionsContext)
 

@@ -16,6 +16,9 @@ type Props = {
   item: GalleryAlbum | GalleryImage
 }
 
+// gallery item component
+// all items are of fixed size (300 x 300 px)
+// displayed as part of a grid
 const GalleryCard: React.FC<Props> = ({ item }) => {
   return (
     <div className='galleryCard'>

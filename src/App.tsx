@@ -15,13 +15,18 @@ const defaultOptions: Options = {
   showViral: true,
 }
 
+// top-level options context
 const OptionsContext = createContext<
   [Options, React.Dispatch<React.SetStateAction<Options>>]
 >([defaultOptions, () => {}])
 
 const App: React.FC = () => {
+  // initialize options state with default values
   const [options, setOptions] = useState<Options>(defaultOptions)
 
+  // wrap the app in a global OptionsContext
+  // wrap the app using a Router, exposing one static Route
+  // and two dynamic Routes
   return (
     <OptionsContext.Provider value={[options, setOptions]}>
       <Router>

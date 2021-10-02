@@ -5,9 +5,13 @@ type Props = {
   label: string
   defaultValue: string
   values: string[]
+
+  // generic selection handler
+  // used to connect to global options state
   onSelect: (value: string) => void
 }
 
+// generic dropdown (select) component
 const Dropdown: React.FC<Props> = ({
   defaultValue,
   values,
@@ -17,8 +21,8 @@ const Dropdown: React.FC<Props> = ({
   const [value, setValue] = useState(defaultValue)
 
   const onChange: React.ChangeEventHandler<HTMLSelectElement> = event => {
-    setValue(event.target.value)
-    onSelect(event.target.value)
+    setValue(event.target.value) // update dropdown state
+    onSelect(event.target.value) // update global options state
   }
 
   return (

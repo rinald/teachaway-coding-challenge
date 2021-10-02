@@ -10,6 +10,8 @@ type Props = {
   image: GalleryImage | null
 }
 
+// component that displays a standalone image
+// displayed in the dynamic image page
 const Image: React.FC<Props> = ({ image }) => {
   return (
     <div className='albumWrapper'>

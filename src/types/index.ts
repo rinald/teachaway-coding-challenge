@@ -1,7 +1,9 @@
+// option types
 type SectionOption = 'hot' | 'top' | 'user'
 type SortOption = 'viral' | 'top' | 'time ' | 'rising'
 type WindowOption = 'day' | 'week' | 'month' | 'year' | 'all'
 
+// gallery filtering options type
 type Options = {
   section: SectionOption
   sort: SortOption
@@ -9,6 +11,8 @@ type Options = {
   showViral: boolean
 }
 
+// base interface for gallery item fields
+// of the gallery API endpoint
 interface GalleryItem {
   id: string
   title: string
@@ -23,6 +27,7 @@ interface GalleryItem {
   is_album: boolean
 }
 
+// base interface for an image field
 interface Image {
   id: string
   type: string
@@ -32,10 +37,12 @@ interface Image {
   link: string
 }
 
+// interface for gallery items that are not albums
 interface GalleryImage extends GalleryItem, Image {
   is_album: false
 }
 
+// interface for images part of the 'images' field of GalleryAlbum
 interface AlbumImage extends Image {
   is_album: false
   title?: string
@@ -49,12 +56,14 @@ interface AlbumImage extends Image {
   score?: number
 }
 
+// interface for gallery items that are albums
 interface GalleryAlbum extends GalleryItem {
   is_album: true
   images_count: number
   images: AlbumImage[]
 }
 
+// gallery API endpoint response type
 type GalleryResponse = {
   data: (GalleryAlbum | GalleryImage)[]
   success: boolean

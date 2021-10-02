@@ -5,6 +5,8 @@ type Props = {
   item: GalleryAlbum | GalleryImage | AlbumImage
 }
 
+// media content component
+// render content as either an image or a muted self-playing video
 const Content: React.FC<Props> = ({ item }) => {
   let cover: AlbumImage | GalleryImage
 

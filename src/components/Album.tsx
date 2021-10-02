@@ -10,6 +10,8 @@ type Props = {
   album: GalleryAlbum | null
 }
 
+// component that displays all images in a gallery album
+// displayed in the dynamic album page
 const Album: React.FC<Props> = ({ album }) => {
   return (
     <div className='albumWrapper'>
